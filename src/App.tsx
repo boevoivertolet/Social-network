@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className='app-wrapper'>
+            <header>
+                <img
+                    src="https://coub-attachments.akamaized.net/coub_storage/coub/simple/cw_timeline_pic/35f879230a6/fc6ae2bde8cb36b8ab296/1492800456_image.jpg"
+                    alt="x"/>
+            </header>
+            <nav>
+                <div>Profile</div>
+                <div>Messages</div>
+            </nav>
+            <div>main content</div>
+        </div>
+    );
 }
 
 export default App;
+
+
