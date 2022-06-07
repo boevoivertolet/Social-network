@@ -5,7 +5,7 @@ import styles from './Post.module.css'
 
 type PostPropsType={
     message: string
-    likeCount:number
+    likesCount:number
 }
 
 
@@ -15,9 +15,9 @@ export function Post(props: PostPropsType) {
             <img
                 src="https://avatars.mds.yandex.net/get-kinopoisk-post-img/1101693/e69a662c50fe9bfe3b37bef6797c11b0/960"
                 alt="x"/>
-            {props.message}
+            <span>{props.message}</span>
             <div>
-                <span>like</span><span>{props.likeCount}</span>
+                <span>like</span><span>{props.likesCount}</span>
             </div>
         </div>
     )

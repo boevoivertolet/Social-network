@@ -10,11 +10,11 @@ export function MyPosts() {
             <div className={styles.myPosts}>
                 My posts
                 <div className={styles.newPost}>
-                    <textarea placeholder="enter text"></textarea>
+                    <textarea></textarea>
                     <button>add post</button>
                 </div>
-                <Post likeCount={3} message ='1 message'/>
-                <Post likeCount={5} message ='2 message'/>
+                <Post likesCount={3} message ='1 message'/>
+                <Post likesCount={5} message ='2 message'/>
             </div>
         </div>
     )

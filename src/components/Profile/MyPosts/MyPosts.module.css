@@ -22,14 +22,18 @@ textarea {
     border: none;
     background: transparent;
     border-bottom: 1px solid #FBE380 ;
-    color: #000;
+    color: #FBE380;
     padding: 15px 0 10px;
     outline: none;
     font-family: inherit;
+    border-radius: 25px;
+
 }
 
 textarea:focus {
     border-bottom: 3px solid #FBE380;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+    border-radius: 25px;
 }
 .myPosts, .newPost {
     margin: 10px;
