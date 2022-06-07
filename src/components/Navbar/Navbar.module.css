@@ -1,4 +1,4 @@
-nav {
+.nav {
     margin: 15px;
     grid-area: nav;
     background: #063F59;
@@ -11,21 +11,28 @@ nav {
 
 }
 
-nav div a {
+.nav div a {
     text-decoration: none;
     color: #FCED8B;
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
     border-radius: 25px;
-    padding: 5px;
-    margin-top: 25px;
+    padding: 15px;
+
+
 }
 
-nav div a:hover {
+.nav div a:hover {
     font-size: 18px;
-    background: #043453;
+
 }
 
-nav div a:active {
-    color: #FCED8B;
+.nav div a:active {
+    color: #000;
+    background: #276C70;
+}
+.anchor {
+    margin-top: 45px;
+}
+.active{
     background: #276C70;
 }

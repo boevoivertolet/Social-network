@@ -12,10 +12,6 @@
     color: #FBE380;
 }
 
-a:active {
-    color: deepskyblue;
-}
-
 em:hover {
     font-size: 18px;
 }
