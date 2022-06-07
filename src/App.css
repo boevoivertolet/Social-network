@@ -14,9 +14,11 @@
 a:active {
     color: deepskyblue;
 }
+
 em:hover {
     font-size: 18px;
 }
+
 em {
     color: #989625;
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
@@ -25,6 +27,7 @@ em {
     position: relative;
     bottom: 14px;
 }
+
 .myPosts, .post, .newPost, .ava-description {
     margin: 10px;
     grid-area: content;
@@ -35,3 +38,5 @@ em {
     height: auto;
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
 }
+
+

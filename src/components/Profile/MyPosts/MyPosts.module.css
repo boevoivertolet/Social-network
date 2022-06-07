@@ -1,0 +1,33 @@
+button:hover {
+    background: #043453;
+}
+
+button:active {
+    color: #FCED8B;
+    background: #276C70;
+}
+
+button {
+    text-decoration: none;
+    background: #0B3E58;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+    border-radius: 25px;
+    color: #FBE380;
+    border: none;
+}
+
+textarea {
+    width: 30%;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #FBE380 ;
+    color: #000;
+    padding: 15px 0 10px;
+    outline: none;
+    font-family: inherit;
+}
+
+textarea:focus {
+    border-bottom: 3px solid #FBE380;
+}
