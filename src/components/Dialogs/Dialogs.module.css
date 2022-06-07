@@ -1,0 +1,60 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    margin: 10px;
+    grid-area: content;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background: #053854;
+    height: 1000px;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+}
+.dialogsItems {
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background: #053854;
+    height: auto;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+}
+.dialog{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background: #053854;
+    height: auto;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+    width: auto;
+    margin-top: 10px;
+
+}
+.messages{
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background: #053854;
+    height: auto;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+    margin-left: 20px;
+}
+.message {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background: #053854;
+    height: auto;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+    width: auto;
+    margin-top: 10px;
+}
+.dialog:hover {
+    font-size: 18px;
+}
+.dialog:active{
+    color: #000;
+    background: #276C70;
+}
+.active{
+    background: #276C70;
+}
