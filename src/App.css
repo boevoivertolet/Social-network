@@ -28,7 +28,7 @@ em {
     bottom: 14px;
 }
 
-.myPosts, .post, .newPost, .ava-description {
+.ava-description {
     margin: 10px;
     grid-area: content;
     padding: 30px;

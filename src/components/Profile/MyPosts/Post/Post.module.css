@@ -1,4 +1,21 @@
 .post img {
-    width: 50px;
-
+    width: 70px;
+    margin: 40px;
+}
+.post{
+    margin: 10px;
+    grid-area: content;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background: #053854;
+    height: auto;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+}
+.post span{
+    border-radius: 50%;
+    border: 1px solid #FBE380;
+    padding: 2px;
+    margin: 15px;
+    color: #FBE380;
 }
