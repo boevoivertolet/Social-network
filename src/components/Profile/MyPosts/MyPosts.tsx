@@ -1,15 +1,17 @@
 import React from 'react';
 import {Post} from './Post/Post';
 import styles from './MyPosts.module.css'
+import {v1} from 'uuid';
 
 
 export function MyPosts() {
 
     let postData = [
-        {id: '1', message: 'message1', likesCount: 3},
-        {id: '2', message: 'message2', likesCount: 5}
+        {id: v1(), message: 'message1', likesCount: 3},
+        {id: v1(), message: 'message2', likesCount: 5}
     ]
 
+    let postDataElement =postData.map(post =>  <Post id={post.id} likesCount={post.likesCount} message={post.message}/>)
 
     return (
         <div>
@@ -19,8 +21,8 @@ export function MyPosts() {
                     <textarea></textarea>
                     <button>add post</button>
                 </div>
-                <Post id={'1'} likesCount={postData[0].likesCount} message={postData[0].message}/>
-                <Post id={'2'} likesCount={postData[1].likesCount} message={postData[1].message}/>
+                {postDataElement}
+
             </div>
         </div>
     )

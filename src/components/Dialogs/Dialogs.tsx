@@ -2,31 +2,33 @@ import React from 'react';
 import styles from './Dialogs.module.css'
 import {Dialog} from './Dialog/Dialog';
 import {Message} from './Message/Message';
+import {v1} from 'uuid';
 
 
 export function Dialogs() {
 
-    let DialogData = [
-        {id: '1', name: 'Sasha'},
-        {id: '2', name: 'Ulya'}
-    ]
-    let MessageData = [
-        {id: '1', messageText: 'text1'},
-        {id: '2', messageText: 'text2'}
-    ]
+    let dialogData = [
+        {id: v1(), name: 'Sasha'},
+        {id: v1(), name: 'Ulya'}
 
+    ]
+    let dialogDataElement = dialogData.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
+
+    let messageData = [
+        {id: v1(), messageText: 'text1'},
+        {id: v1(), messageText: 'text2'}
+    ]
+    let messageDataElement = messageData.map(message => <Message text={message.messageText} id={message.id}/>)
 
     return (
 
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
-                <Dialog name={DialogData[0].name} id={DialogData[0].id}/>
-                <Dialog name={DialogData[1].name} id={DialogData[1].id}/>
+
+                {dialogDataElement}
             </div>
             <div className={styles.messages}>
-                <Message text={MessageData[0].messageText} id={MessageData[0].id}/>
-                <Message text={MessageData[1].messageText} id={MessageData[1].id}/>
-
+                {messageDataElement}
             </div>
         </div>
     )
