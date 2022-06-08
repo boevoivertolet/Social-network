@@ -26,15 +26,6 @@ em {
     bottom: 14px;
 }
 
-.ava-description {
-    margin: 10px;
-    grid-area: content;
-    padding: 30px;
-    border: 1px solid black;
-    border-radius: 25px;
-    background: #053854;
-    height: auto;
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
-}
+
 
 
