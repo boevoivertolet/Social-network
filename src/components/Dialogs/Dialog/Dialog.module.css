@@ -1,21 +1,35 @@
-.dialog a{
+.dialog {
     border: 1px solid black;
     border-radius: 25px;
     background: #053854;
     height: auto;
+    width: auto;
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
+    padding: 15px;
+    margin: 15px;
+    color: #FCED8B;
+    text-align: right;
+
+}
+
+.dialog a{
     text-decoration: none;
     color: #FCED8B;
-    padding: 15px;
-    margin-top: 30px;
 }
-.dialog:hover {
+
+.dialog a:hover {
     font-size: 18px;
 }
-.dialog a:active{
+
+.dialog a:active {
     color: #000;
+}
+
+.dialog a:active {
+    color: #000;
+}
+
+.active {
     background: #276C70;
 }
-.active{
-    background: #276C70;
-}
+
