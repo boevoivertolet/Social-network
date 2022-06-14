@@ -2,23 +2,20 @@ import React from 'react';
 import styles from './Dialogs.module.css'
 import {Dialog} from './Dialog/Dialog';
 import {Message} from './Message/Message';
-import {v1} from 'uuid';
+import {DialogDataType, MessageDataType} from '../../index';
+
+type DialogsPropsType={
+    dialogData: DialogDataType[]
+    messageData: MessageDataType[]
+}
+
+export function Dialogs(props: DialogsPropsType) {
 
 
-export function Dialogs() {
+    let dialogDataElement = props.dialogData.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
 
-    let dialogData = [
-        {id: v1(), name: 'Sasha'},
-        {id: v1(), name: 'Ulya'}
 
-    ]
-    let dialogDataElement = dialogData.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
-
-    let messageData = [
-        {id: v1(), messageText: 'text1'},
-        {id: v1(), messageText: 'text2'}
-    ]
-    let messageDataElement = messageData.map(message => <Message text={message.messageText} id={message.id}/>)
+    let messageDataElement = props.messageData.map(message => <Message text={message.messageText} id={message.id}/>)
 
     return (
 
