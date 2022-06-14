@@ -11,7 +11,7 @@ export function MyPosts() {
         {id: v1(), message: 'message2', likesCount: 5}
     ]
 
-    let postDataElement =postData.map(post =>  <Post id={post.id} likesCount={post.likesCount} message={post.message}/>)
+    let postDataElement = postData.map(post => <Post id={post.id} likesCount={post.likesCount} message={post.message}/>)
 
     return (
         <div>
