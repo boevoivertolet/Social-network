@@ -4,8 +4,10 @@
     width: 110px;
     padding: 5px;
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 025);
-    position: fixed;
-    top: 750px
+    position: absolute;
+    top: 750px;
+    left: 50px;
+
 
 
 }

@@ -1,35 +1,48 @@
 import {v1} from 'uuid';
 
-
-export type PostDataType = {
+////////////////////////////////////////////////////////////////////////////////////////////// // Types
+type PostDataType = {
     id: string
     message: string
     likesCount: number
 }
-export type DialogDataType = {
+type DialogDataType = {
     id: string
     name: string
 }
-export type MessageDataType = {
+type MessageDataType = {
     id: string
     messageText: string
 }
-export type FriendDataType = {
+type FriendDataType = {
     id: string
     name: string
+    srcLink: string
 }
-export type StateDataType = {
-    profile: { postData: PostDataType[] }
-    dialogs: {
-        dialogData: DialogDataType[]
-        messageData: MessageDataType[]
-    }
-    sidebar: {
-        friendData: FriendDataType[]
-    }
+type ProfileType ={
+    postData: PostDataType[]
+}
+type DialogsType ={
+    dialogData: DialogDataType[]
+    messageData: MessageDataType[]
+}
+type SidebarType ={
+    friendData: FriendDataType[]
 }
 
-export let state = {
+export type StateDataType = {
+    profile: ProfileType
+    dialogs: DialogsType
+    sidebar: SidebarType
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+export let state: StateDataType = {
     dialogs: {
         dialogData: [
             {id: v1(), name: 'Sasha'},

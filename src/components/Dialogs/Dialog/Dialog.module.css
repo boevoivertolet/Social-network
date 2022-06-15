@@ -18,7 +18,7 @@
 }
 
 .dialog a:hover {
-    font-size: 18px;
+    text-decoration: underline;
 }
 
 .dialog a:active {
@@ -31,5 +31,12 @@
 
 .active {
     background: #276C70;
+}
+.dialog img {
+    width: 45px;
+    height: 45px;
+    margin-right: 110px;
+    border-radius: 25px;
+    border: 1px solid #FCED8B;
 }
 

@@ -1,18 +1,18 @@
 import React from 'react';
 import {Post} from './Post/Post';
 import styles from './MyPosts.module.css'
-import {PostDataType} from '../../../Redux/state';
+import { StateDataType} from '../../../Redux/state';
 
 
 
 type MyPostsPropsType = {
-    postData: PostDataType[]
+    state: StateDataType
 }
 
 export function MyPosts(props: MyPostsPropsType) {
 
 
-    let postDataElement = props.postData.map(post => <Post id={post.id} likesCount={post.likesCount}
+    let postDataElement = props.state.profile.postData.map(post => <Post id={post.id} likesCount={post.likesCount}
                                                            message={post.message}/>)
 
     return (

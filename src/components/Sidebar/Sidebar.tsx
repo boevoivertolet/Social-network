@@ -1,29 +1,33 @@
 import styles from '../Sidebar/Sidebar.module.css';
 import React from 'react';
-import {FriendDataType} from '../../Redux/state';
+import {StateDataType} from '../../Redux/state';
 
 
 type SidebarPropsType = {
-    friendData: FriendDataType[]
+    state: StateDataType
 }
 
 export function Sidebar(props: SidebarPropsType) {
+
+    let srcSasha = props.state.sidebar.friendData[0].srcLink
+    let srcUlya = props.state.sidebar.friendData[1].srcLink
+    let nameSasha = props.state.sidebar.friendData[0].name
+    let nameUlya = props.state.sidebar.friendData[1].name
 
     return (
         <div className={styles.sidebar}>
             <div>Friends</div>
             <div>
-                <img className={styles.avatarSidebar} src={'https://avatars.githubusercontent.com/u/90279661?v=4'}
+                <img className={styles.avatarSidebar} src={srcSasha}
                      alt="x"/>
-                <span>{props.friendData[0].name}</span>
+                <span>{nameSasha}</span>
             </div>
             <div>
                 <img className={styles.avatarSidebar}
-                     src="https://sun9-87.userapi.com/s/v1/if2/db9z2NUgGSaPO6_dK8udX27nGq3lKM1MBZ-fB2Jjeeo5qXzwq-PHe_FEgHxT0_CXspR2KcHvWjp5JJ_CTK1s8INX.jpg?size=1620x2160&quality=96&type=album"
+                     src={srcUlya}
                      alt="x"/>
-                <span>{props.friendData[1].name}</span>
+                <span>{nameUlya}</span>
             </div>
-
         </div>
     )
 }

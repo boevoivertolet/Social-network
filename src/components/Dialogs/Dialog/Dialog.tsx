@@ -12,7 +12,9 @@ export function Dialog(props: DialogPropsType) {
     let path = '/Dialogs/' + props.id
     return (
         <div className={styles.dialog}>
-        <NavLink to={path} className={navData => navData.isActive ? styles.active : ''}>{props.name}</NavLink>
+            <img src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg" alt=""/>
+            <NavLink to={path} className={navData => navData.isActive ? styles.active : ''}>{props.name}</NavLink>
+
         </div>
     )
 }
