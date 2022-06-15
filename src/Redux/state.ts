@@ -1,4 +1,5 @@
 import {v1} from 'uuid';
+import {rerenderEntireTree} from './render';
 
 ////////////////////////////////////////////////////////////////////////////////////////////// // Types
 type PostDataType = {
@@ -38,10 +39,6 @@ export type StateDataType = {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
 export let state: StateDataType = {
     dialogs: {
         dialogData: [
@@ -74,4 +71,5 @@ export const addPost = (postMessage: string) => {
       likesCount: 0
   }
     state.profile.postData.push(newPost)
+    rerenderEntireTree(state);
 }
