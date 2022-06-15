@@ -14,6 +14,7 @@ import {Sidebar} from './components/Sidebar/Sidebar';
 
 type AppPropsType = {
     state: StateDataType
+    addPost: (postMessage: string)=> void
 }
 
 function App(props: AppPropsType) {
@@ -21,7 +22,7 @@ function App(props: AppPropsType) {
     return (
         <div className="app-wrapper">
             <Routes>
-                <Route path="/Profile" element={<Profile state={props.state}/>}/>
+                <Route path="/Profile" element={<Profile state={props.state} addPost={props.addPost}/>}/>
                 <Route path="/Dialogs" element={<Dialogs state={props.state}/>}/>
                 <Route path="/News" element={<News/>}/>
                 <Route path="/Music" element={<Music/>}/>

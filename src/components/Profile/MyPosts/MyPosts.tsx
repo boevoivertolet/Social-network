@@ -6,6 +6,7 @@ import React from 'react';
 
 type MyPostsPropsType = {
     state: StateDataType
+    addPost: (postMessage: string) => void
 }
 
 export function MyPosts(props: MyPostsPropsType) {
@@ -13,13 +14,12 @@ export function MyPosts(props: MyPostsPropsType) {
 
     let postDataElement = props.state.profile.postData.map(post => <Post id={post.id} likesCount={post.likesCount}
                                                                          message={post.message}/>)
-
     let newTextareaValue = React.createRef<HTMLTextAreaElement>()
 
 
     const addPost = () => {
-        let value = newTextareaValue.current?.value
-        alert(value)
+        let value: any = newTextareaValue.current?.value
+        props.addPost(value);
     }
 
 

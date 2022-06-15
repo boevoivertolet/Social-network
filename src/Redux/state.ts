@@ -66,3 +66,12 @@ export let state: StateDataType = {
         ]
     }
 }
+
+export const addPost = (postMessage: string) => {
+  let newPost ={
+      id:v1(),
+      message: postMessage,
+      likesCount: 0
+  }
+    state.profile.postData.push(newPost)
+}
