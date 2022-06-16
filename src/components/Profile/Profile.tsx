@@ -7,7 +7,7 @@ import {StateDataType} from '../../Redux/state';
 type ProfilePropsType = {
     state: StateDataType
     addPost: (postMessage: string) => void
-    addText:(newText: string)=> void
+    changeText:(newText: string)=> void
 }
 
 export function Profile(props: ProfilePropsType) {
@@ -19,7 +19,7 @@ export function Profile(props: ProfilePropsType) {
             <MyPosts
                 state={props.state}
                 addPost={props.addPost}
-                addText={props.addText}
+                changeText={props.changeText}
             />
         </div>
 

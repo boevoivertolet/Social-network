@@ -6,6 +6,8 @@ import {StateDataType} from '../../Redux/state';
 
 type DialogsPropsType = {
     state: StateDataType
+    changeMessage:(newMessage: string)=> void
+    addMessage:(id: string)=> void
 }
 
 export function Dialogs(props: DialogsPropsType) {
@@ -18,11 +20,15 @@ export function Dialogs(props: DialogsPropsType) {
                                                                                      id={message.id}/>)
 
     let newTextareaValue = React.createRef<HTMLTextAreaElement>()
-
-
     const addMessage = () => {
-        let value = newTextareaValue.current?.value
-        alert(value)
+        let value: any = newTextareaValue.current?.value
+        props.addMessage(value)
+
+    }
+    const onChangeMessage = () => {
+        let value: any = newTextareaValue.current?.value
+        props.changeMessage(value)
+
     }
 
 
@@ -34,7 +40,7 @@ export function Dialogs(props: DialogsPropsType) {
                 {dialogDataElement}
             </div>
             <div className={styles.messages}>
-                <textarea ref={newTextareaValue}></textarea>
+                <textarea onChange={onChangeMessage} ref={newTextareaValue} ></textarea>
                 <button onClick={addMessage}>send</button>
                 {messageDataElement}
             </div>

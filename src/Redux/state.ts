@@ -1,5 +1,7 @@
 import {v1} from 'uuid';
-import {rerenderEntireTree} from './render';
+let rerenderEntireTree = (state: StateDataType)=> {
+    console.log('hiho')
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////// // Types
 type PostDataType = {
@@ -7,7 +9,7 @@ type PostDataType = {
     message: string
     likesCount: number
 }
-type newPostTextDataType={
+type newPostTextDataType = {
     text: string
 }
 type DialogDataType = {
@@ -23,15 +25,15 @@ type FriendDataType = {
     name: string
     srcLink: string
 }
-type ProfileType ={
+type ProfileType = {
     postData: PostDataType[]
     newPostTextData: newPostTextDataType[]
 }
-type DialogsType ={
+type DialogsType = {
     dialogData: DialogDataType[]
     messageData: MessageDataType[]
 }
-type SidebarType ={
+type SidebarType = {
     friendData: FriendDataType[]
 }
 
@@ -47,41 +49,66 @@ export let state: StateDataType = {
     dialogs: {
         dialogData: [
             {id: v1(), name: 'Sasha'},
-            {id: v1(), name: 'Ulya'}
+
         ],
         messageData: [
-            {id: v1(), messageText: 'text1'},
-            {id: v1(), messageText: 'text2'}
+            {id: v1(), messageText: 'Message'}
+
         ]
     },
     profile: {
         postData: [
-            {id: v1(), message: 'message1', likesCount: 3},
-            {id: v1(), message: 'message2', likesCount: 5}
+            {id: v1(), message: '', likesCount: 0},
         ],
-        newPostTextData:[
-            {text:'asdasdasd'}
+        newPostTextData: [
+            {text: ''}
         ]
     },
     sidebar: {
         friendData: [
             {id: v1(), name: 'Sasha', srcLink: 'https://avatars.githubusercontent.com/u/90279661?v=4'},
-            {id: v1(), name: 'Ulya', srcLink: 'https://sun9-87.userapi.com/s/v1/if2/db9z2NUgGSaPO6_dK8udX27nGq3lKM1MBZ-fB2Jjeeo5qXzwq-PHe_FEgHxT0_CXspR2KcHvWjp5JJ_CTK1s8INX.jpg?size=1620x2160&quality=96&type=album'}
+            {
+                id: v1(),
+                name: 'Ulya',
+                srcLink: 'https://sun9-87.userapi.com/s/v1/if2/db9z2NUgGSaPO6_dK8udX27nGq3lKM1MBZ-fB2Jjeeo5qXzwq-PHe_FEgHxT0_CXspR2KcHvWjp5JJ_CTK1s8INX.jpg?size=1620x2160&quality=96&type=album'
+            }
         ]
     }
 }
 
-export const addPost = () => {
-  let newPost ={
-      id:v1(),
-      message: state.profile.newPostTextData[0].text,
-      likesCount: 0
-  }
-    state.profile.postData.push(newPost)
-    addText('')
-    rerenderEntireTree(state);
-}
-export const addText = (newText: string) => {
+
+
+export const changeText = (newText: string) => {
     state.profile.newPostTextData[0].text = newText
     rerenderEntireTree(state);
+}
+export const addPost = () => {
+    let newPost = {
+        id: v1(),
+        message: state.profile.newPostTextData[0].text,
+        likesCount: 0
+    }
+    state.profile.postData.unshift(newPost)
+    changeText('')
+    rerenderEntireTree(state);
+}
+export const changeMessage = (newMessage: string) => {
+    state.dialogs.messageData[0].messageText = newMessage
+    rerenderEntireTree(state);
+}
+export const addMessage = () => {
+    let newMessage = {
+        id: v1(),
+        messageText: state.dialogs.messageData[0].messageText
+    }
+    state.dialogs.messageData.unshift(newMessage)
+    changeMessage('')
+
+    rerenderEntireTree(state);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const subscribe = (callback:()=> void) => {
+    rerenderEntireTree= callback
 }
