@@ -7,6 +7,9 @@ type PostDataType = {
     message: string
     likesCount: number
 }
+type newPostTextDataType={
+    text: string
+}
 type DialogDataType = {
     id: string
     name: string
@@ -22,6 +25,7 @@ type FriendDataType = {
 }
 type ProfileType ={
     postData: PostDataType[]
+    newPostTextData: newPostTextDataType[]
 }
 type DialogsType ={
     dialogData: DialogDataType[]
@@ -54,6 +58,9 @@ export let state: StateDataType = {
         postData: [
             {id: v1(), message: 'message1', likesCount: 3},
             {id: v1(), message: 'message2', likesCount: 5}
+        ],
+        newPostTextData:[
+            {text:'asdasdasd'}
         ]
     },
     sidebar: {
@@ -64,12 +71,17 @@ export let state: StateDataType = {
     }
 }
 
-export const addPost = (postMessage: string) => {
+export const addPost = () => {
   let newPost ={
       id:v1(),
-      message: postMessage,
+      message: state.profile.newPostTextData[0].text,
       likesCount: 0
   }
     state.profile.postData.push(newPost)
+    addText('')
+    rerenderEntireTree(state);
+}
+export const addText = (newText: string) => {
+    state.profile.newPostTextData[0].text = newText
     rerenderEntireTree(state);
 }
