@@ -8,19 +8,21 @@ import {Route, Routes} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
-import {StateDataType} from './Redux/state';
+import { StoreType} from './Redux/state';
 import {Sidebar} from './components/Sidebar/Sidebar';
 
 
 type AppPropsType = {
-    state: StateDataType
+   /* state: StateDataType
     addPost: (postMessage: string) => void
     changeText: (newText: string) => void
     changeMessage: (newMessage: string) => void
-    addMessage: (id:string) => void
+    addMessage: (id:string) => void*/
+    store: StoreType
 }
 
 function App(props: AppPropsType) {
+
 
     return (
         <div className="app-wrapper">
@@ -28,16 +30,16 @@ function App(props: AppPropsType) {
                 <Route
                     path="/Profile" element={
                     <Profile
-                        state={props.state}
-                        addPost={props.addPost}
-                        changeText={props.changeText}
+                        store={props.store}
+                       /* addPost={props.addPost}
+                        changeText={props.changeText}*/
                     />}/>
 
                 <Route path="/Dialogs" element={
                     <Dialogs
-                        state={props.state}
-                        changeMessage={props.changeMessage}
-                        addMessage={props.addMessage}
+                        store={props.store}
+                        /*changeMessage={props.changeMessage}
+                        addMessage={props.addMessage}*/
                     />}/>
 
 
@@ -47,7 +49,7 @@ function App(props: AppPropsType) {
             </Routes>
             <Header/>
             <Navbar/>
-            <Sidebar state={props.state}/>
+            <Sidebar store={props.store}/>
         </div>
     );
 }

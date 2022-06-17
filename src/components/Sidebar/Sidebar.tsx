@@ -1,18 +1,18 @@
 import styles from '../Sidebar/Sidebar.module.css';
 import React from 'react';
-import {StateDataType} from '../../Redux/state';
+import { StoreType} from '../../Redux/state';
 
 
 type SidebarPropsType = {
-    state: StateDataType
+    store: StoreType
 }
 
 export function Sidebar(props: SidebarPropsType) {
 
-    let srcSasha = props.state.sidebar.friendData[0].srcLink
-    let srcUlya = props.state.sidebar.friendData[1].srcLink
-    let nameSasha = props.state.sidebar.friendData[0].name
-    let nameUlya = props.state.sidebar.friendData[1].name
+    let srcSasha = props.store.getState().sidebar.friendData[0].srcLink
+    let srcUlya = props.store.getState().sidebar.friendData[1].srcLink
+    let nameSasha = props.store.getState().sidebar.friendData[0].name
+    let nameUlya = props.store.getState().sidebar.friendData[1].name
 
     return (
         <div className={styles.sidebar}>
