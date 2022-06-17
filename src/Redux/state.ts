@@ -35,32 +35,32 @@ export const store: StoreType = {
     _rerenderEntireTree: (state: StateDataType) => {
         console.log('state changed')
     },
-    changeText(newText: string) {
+    _changeText(newText: string) {
         this._state.profile.newPostTextData[0].text = newText
         this._rerenderEntireTree(this._state);
     },
-    addPost() {
+    _addPost() {
         let newPost = {
             id: v1(),
             message: this._state.profile.newPostTextData[0].text,
             likesCount: 0
         }
         this._state.profile.postData.unshift(newPost)
-        this.changeText('')
+        this._state.profile.newPostTextData[0].text = '';
         this._rerenderEntireTree(this._state);
+
     },
-    changeMessage(newMessage: string) {
+    _changeMessage(newMessage: string) {
         this._state.dialogs.messageData[0].messageText = newMessage
         this._rerenderEntireTree(this._state);
     },
-    addMessage() {
+    _addMessage() {
         let newMessage = {
             id: v1(),
             messageText: this._state.dialogs.messageData[0].messageText
         }
         this._state.dialogs.messageData.unshift(newMessage)
-        this.changeMessage('')
-
+        this._state.dialogs.messageData[0].messageText= ''
         this._rerenderEntireTree(this._state);
     },
     subscribe(callback: () => void) {
@@ -68,11 +68,24 @@ export const store: StoreType = {
     },
     getState() {
         return this._state
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            this._addPost(action.type);
+        } else if (action.type === 'CHANGE-TEXT') {
+         this._changeText(action.newText);
+        } else if(action.type === 'CHANGE-MESSAGE'){
+            this._changeMessage(action.newMessage);
+        }else if(action.type=== 'ADD-MESSAGE'){
+            this._addMessage();
+        }
     }
+
+
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////// // Types
+//////////////////////////////////////////////////////////////////////////////////////////////// Types
 type PostDataType = {
     id: string
     message: string
@@ -105,6 +118,22 @@ type DialogsType = {
 type SidebarType = {
     friendData: FriendDataType[]
 }
+type AddPostActionType = {
+    type: 'ADD-POST'
+}
+type ChangeTextActionType = {
+    type: 'CHANGE-TEXT'
+    newText: string
+}
+type ChangeMessageActionType ={
+    type: 'CHANGE-MESSAGE'
+    newMessage: string
+}
+type AddMessageActionType ={
+    type: 'ADD-MESSAGE'
+}
+
+type ActionType = AddPostActionType | ChangeTextActionType | ChangeMessageActionType | AddMessageActionType
 
 export type StateDataType = {
     profile: ProfileType
@@ -114,15 +143,14 @@ export type StateDataType = {
 export type StoreType = {
     _state: StateDataType
     _rerenderEntireTree: (state: StateDataType) => void
-    changeText: (newText: string) => void
-    addPost: (value: string) => void
-    changeMessage: (newMessage: string) => void
-    addMessage: (value: string) => void
+    _changeText: (newText: string) => void
+    _addPost: (value: string) => void
+    _changeMessage: (newMessage: string) => void
+    _addMessage: () => void
     subscribe: (callback: () => void) => void
     getState: () => StateDataType
+    dispatch: (action: ActionType) => void
 }
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 

@@ -19,19 +19,16 @@ export function MyPosts(props: MyPostsPropsType) {
                                                                          message={post.message}/>)
     let newTextareaValue = React.createRef<HTMLTextAreaElement>()
     const addPost = () => {
-        let value: any = newTextareaValue.current?.value
-        props.store.addPost(value);
+        props.store.dispatch({type:'ADD-POST'});
 
     }
     const onChangePost = () => {
         let value: any = newTextareaValue.current?.value
-        props.store.changeText(value)
+        props.store.dispatch({type:'CHANGE-TEXT', newText: value})
 
     }
 
-    const onKeyPressHandler = () => {
 
-    }
 
 
     return (

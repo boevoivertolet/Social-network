@@ -22,13 +22,13 @@ export function Dialogs(props: DialogsPropsType) {
 
     let newTextareaValue = React.createRef<HTMLTextAreaElement>()
     const addMessage = () => {
-        let value: any = newTextareaValue.current?.value
-        props.store.addMessage(value)
+        //let value: any = newTextareaValue.current?.value
+        props.store.dispatch({type:'ADD-MESSAGE'})
 
     }
     const onChangeMessage = () => {
         let value: any = newTextareaValue.current?.value
-        props.store.changeMessage(value)
+        props.store.dispatch({type:'CHANGE-MESSAGE',newMessage: value })
 
     }
 
