@@ -60,7 +60,7 @@ export const store: StoreType = {
             messageText: this._state.dialogs.messageData[0].messageText
         }
         this._state.dialogs.messageData.unshift(newMessage)
-        this._state.dialogs.messageData[0].messageText= ''
+        this._state.dialogs.messageData[0].messageText = ''
         this._rerenderEntireTree(this._state);
     },
     subscribe(callback: () => void) {
@@ -73,10 +73,10 @@ export const store: StoreType = {
         if (action.type === 'ADD-POST') {
             this._addPost(action.type);
         } else if (action.type === 'CHANGE-TEXT') {
-         this._changeText(action.newText);
-        } else if(action.type === 'CHANGE-MESSAGE'){
+            this._changeText(action.newText);
+        } else if (action.type === 'CHANGE-MESSAGE') {
             this._changeMessage(action.newMessage);
-        }else if(action.type=== 'ADD-MESSAGE'){
+        } else if (action.type === 'ADD-MESSAGE') {
             this._addMessage();
         }
     }
@@ -125,11 +125,11 @@ type ChangeTextActionType = {
     type: 'CHANGE-TEXT'
     newText: string
 }
-type ChangeMessageActionType ={
+type ChangeMessageActionType = {
     type: 'CHANGE-MESSAGE'
     newMessage: string
 }
-type AddMessageActionType ={
+type AddMessageActionType = {
     type: 'ADD-MESSAGE'
 }
 
@@ -154,5 +154,10 @@ export type StoreType = {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 
+export type addPostACType = ReturnType<typeof addPostAC>
+export type onChangePostACType = ReturnType<typeof onChangePostAC>
 
+
+export const addPostAC = () => ({type: 'ADD-POST' as const})
+export const onChangePostAC = (value: string) => ({type: 'CHANGE-TEXT', newText: value} as const)
 
