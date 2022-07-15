@@ -9,9 +9,10 @@ export const store: StoreType = {
 
             ],
             messageData: [
-                {id: v1(), messageText: 'Message'}
+                {id: v1(), messageText: ''}
 
-            ]
+            ],
+            newMessageTextData: ''
         },
         profile: {
             postData: [
@@ -72,12 +73,21 @@ export const store: StoreType = {
     dispatch(action) {
         if (action.type === 'ADD-POST') {
             this._addPost(action.type);
-        } else if (action.type === 'CHANGE-TEXT') {
+            this._rerenderEntireTree(this._state)
+        }
+        else if (action.type === 'CHANGE-TEXT') {
             this._changeText(action.newText);
-        } else if (action.type === 'CHANGE-MESSAGE') {
-            this._changeMessage(action.newMessage);
-        } else if (action.type === 'ADD-MESSAGE') {
-            this._addMessage();
+            this._rerenderEntireTree(this._state);
+        }
+        else if (action.type === 'CHANGE-MESSAGE') {
+            this._state.dialogs.newMessageTextData = action.body
+            this._rerenderEntireTree(this._state)
+        }
+        else if (action.type === 'ADD-MESSAGE') {
+            let body = this._state.dialogs.newMessageTextData
+            this._state.dialogs.newMessageTextData = ''
+            this._state.dialogs.messageData.push({id: v1(), messageText: body})
+            this._rerenderEntireTree(this._state)
         }
     }
 
@@ -114,10 +124,14 @@ type ProfileType = {
 type DialogsType = {
     dialogData: DialogDataType[]
     messageData: MessageDataType[]
+    newMessageTextData: string
 }
 type SidebarType = {
     friendData: FriendDataType[]
 }
+
+
+
 type AddPostActionType = {
     type: 'ADD-POST'
 }
@@ -127,11 +141,12 @@ type ChangeTextActionType = {
 }
 type ChangeMessageActionType = {
     type: 'CHANGE-MESSAGE'
-    newMessage: string
+    body: string
 }
 type AddMessageActionType = {
     type: 'ADD-MESSAGE'
 }
+
 
 type ActionType = AddPostActionType | ChangeTextActionType | ChangeMessageActionType | AddMessageActionType
 
@@ -154,10 +169,14 @@ export type StoreType = {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 
-export type addPostACType = ReturnType<typeof addPostAC>
-export type onChangePostACType = ReturnType<typeof onChangePostAC>
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////Action Create
 
 export const addPostAC = () => ({type: 'ADD-POST' as const})
 export const onChangePostAC = (value: string) => ({type: 'CHANGE-TEXT', newText: value} as const)
 
+
+
+
+export const addMessageAC = () => ({type: 'ADD-MESSAGE' as const})
+
+export const onChangeMessageAC = (value: string) => ({type: 'CHANGE-MESSAGE', body: value} as const)
