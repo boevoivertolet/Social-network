@@ -1,7 +1,8 @@
 import {Post} from './Post/Post';
 import styles from './MyPosts.module.css'
-import {addPostAC, onChangePostAC, StoreType} from '../../../Redux/state';
+import {addPostAC, onChangePostAC} from '../../../Redux/profileReducer';
 import React from 'react';
+import {StoreType} from '../../../Redux/state';
 
 
 type MyPostsPropsType = {

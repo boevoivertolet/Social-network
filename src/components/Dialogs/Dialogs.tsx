@@ -2,7 +2,8 @@ import React, {ChangeEvent} from 'react';
 import styles from './Dialogs.module.css'
 import {Dialog} from './Dialog/Dialog';
 import {Message} from './Message/Message';
-import {addMessageAC, onChangeMessageAC, StoreType} from '../../Redux/state';
+import {addMessageAC, onChangeMessageAC} from '../../Redux/dialogsReducer';
+import {StoreType} from '../../Redux/state';
 
 type DialogsPropsType = {
     /* state: StateDataType

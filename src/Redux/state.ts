@@ -1,4 +1,7 @@
 import {v1} from 'uuid';
+import profileReducer from './profileReducer';
+import dialogsReducer from './dialogsReducer';
+import sidebarReducer from './sidebarReducer';
 
 
 export const store: StoreType = {
@@ -71,7 +74,13 @@ export const store: StoreType = {
         return this._state
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        profileReducer(store,action)
+        dialogsReducer(store,action)
+        sidebarReducer(store,action)
+        this._rerenderEntireTree(this._state)
+
+
+      /*  if (action.type === 'ADD-POST') {
             this._addPost(action.type);
             this._rerenderEntireTree(this._state)
         }
@@ -88,7 +97,7 @@ export const store: StoreType = {
             this._state.dialogs.newMessageTextData = ''
             this._state.dialogs.messageData.push({id: v1(), messageText: body})
             this._rerenderEntireTree(this._state)
-        }
+        }*/
     }
 
 
@@ -148,7 +157,7 @@ type AddMessageActionType = {
 }
 
 
-type ActionType = AddPostActionType | ChangeTextActionType | ChangeMessageActionType | AddMessageActionType
+export type ActionType = AddPostActionType | ChangeTextActionType | ChangeMessageActionType | AddMessageActionType
 
 export type StateDataType = {
     profile: ProfileType
@@ -171,12 +180,8 @@ export type StoreType = {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////Action Create
 
-export const addPostAC = () => ({type: 'ADD-POST' as const})
-export const onChangePostAC = (value: string) => ({type: 'CHANGE-TEXT', newText: value} as const)
 
 
 
 
-export const addMessageAC = () => ({type: 'ADD-MESSAGE' as const})
 
-export const onChangeMessageAC = (value: string) => ({type: 'CHANGE-MESSAGE', body: value} as const)
