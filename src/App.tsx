@@ -8,16 +8,11 @@ import {Route, Routes} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
-import { StoreType} from './Redux/state';
 import {Sidebar} from './components/Sidebar/Sidebar';
+import {StoreType} from './Redux/Types';
 
 
 type AppPropsType = {
-   /* state: StateDataType
-    addPost: (postMessage: string) => void
-    changeText: (newText: string) => void
-    changeMessage: (newMessage: string) => void
-    addMessage: (id:string) => void*/
     store: StoreType
 }
 
@@ -31,15 +26,11 @@ function App(props: AppPropsType) {
                     path="/Profile" element={
                     <Profile
                         store={props.store}
-                       /* addPost={props.addPost}
-                        changeText={props.changeText}*/
                     />}/>
 
                 <Route path="/Dialogs" element={
                     <Dialogs
                         store={props.store}
-                        /*changeMessage={props.changeMessage}
-                        addMessage={props.addMessage}*/
                     />}/>
 
 

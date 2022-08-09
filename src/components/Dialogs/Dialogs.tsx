@@ -3,7 +3,7 @@ import styles from './Dialogs.module.css'
 import {Dialog} from './Dialog/Dialog';
 import {Message} from './Message/Message';
 import {addMessageAC, onChangeMessageAC} from '../../Redux/dialogsReducer';
-import {StoreType} from '../../Redux/state';
+import {StoreType} from '../../Redux/Types';
 
 type DialogsPropsType = {
     /* state: StateDataType

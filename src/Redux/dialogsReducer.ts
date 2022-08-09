@@ -1,16 +1,31 @@
-import {ActionType, store, StoreType} from './state';
 import {v1} from 'uuid';
+import {ActionType, StoreType} from './Types';
 
-const dialogsReducer = (state:StoreType, action: ActionType) => {
+
+
+let initialState = {
+        dialogData: [
+            {id: v1(), name: 'Sasha'},
+
+        ],
+        messageData: [
+            {id: v1(), messageText: ''}
+
+        ],
+        newMessageTextData: ''
+    }
+
+
+export const dialogsReducer = (state =initialState, action: ActionType) => {
 
     switch (action.type) {
         case 'CHANGE-MESSAGE':
-            store._state.dialogs.newMessageTextData = action.body
+            state._state.dialogs.newMessageTextData = action.body
             break;
         case 'ADD-MESSAGE':
-            let body = store._state.dialogs.newMessageTextData
-            store._state.dialogs.newMessageTextData = ''
-            store._state.dialogs.messageData.push({id: v1(), messageText: body})
+            let body = state._state.dialogs.newMessageTextData
+            state._state.dialogs.newMessageTextData = ''
+            state._state.dialogs.messageData.push({id: v1(), messageText: body})
             break;
 
     }
@@ -18,10 +33,7 @@ const dialogsReducer = (state:StoreType, action: ActionType) => {
 }
 
 
-
-
 export const addMessageAC = () => ({type: 'ADD-MESSAGE' as const})
 
 export const onChangeMessageAC = (value: string) => ({type: 'CHANGE-MESSAGE', body: value} as const)
 
-export default dialogsReducer;

@@ -1,6 +1,6 @@
 import styles from '../Sidebar/Sidebar.module.css';
 import React from 'react';
-import { StoreType} from '../../Redux/state';
+import {StoreType} from '../../Redux/Types';
 
 
 type SidebarPropsType = {
