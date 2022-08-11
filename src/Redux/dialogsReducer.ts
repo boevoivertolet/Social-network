@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {ActionType, StoreType} from './Types';
+import {ActionType} from './Types';
 
 
 
@@ -20,12 +20,12 @@ export const dialogsReducer = (state =initialState, action: ActionType) => {
 
     switch (action.type) {
         case 'CHANGE-MESSAGE':
-            state._state.dialogs.newMessageTextData = action.body
+            state.newMessageTextData = action.body
             break;
         case 'ADD-MESSAGE':
-            let body = state._state.dialogs.newMessageTextData
-            state._state.dialogs.newMessageTextData = ''
-            state._state.dialogs.messageData.push({id: v1(), messageText: body})
+            let body = state.newMessageTextData
+            state.newMessageTextData = ''
+            state.messageData.push({id: v1(), messageText: body})
             break;
 
     }

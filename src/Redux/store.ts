@@ -76,9 +76,9 @@ export const store: StoreType = {
         return this._state
     },
     dispatch(action) {
-        profileReducer(store,action)
+        /*profileReducer(store,action)
         dialogsReducer(store,action)
-        sidebarReducer(store,action)
+        sidebarReducer(store,action)*/
         this._rerenderEntireTree(this._state)
 
     }

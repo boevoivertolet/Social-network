@@ -13,7 +13,9 @@ import {StoreType} from './Redux/Types';
 
 
 type AppPropsType = {
-    store: StoreType
+    /*store: StoreType*/
+    store: any
+    state: any
 }
 
 function App(props: AppPropsType) {
@@ -25,6 +27,7 @@ function App(props: AppPropsType) {
                 <Route
                     path="/Profile" element={
                     <Profile
+                        state={props.state}
                         store={props.store}
                     />}/>
 

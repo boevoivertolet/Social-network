@@ -18,6 +18,7 @@ const rerenderEntireTree = (state: any) => {
         <React.StrictMode>
             <BrowserRouter>
                 <App
+                    state={state}
                     /*store={store}*/
                     store={store}
                 />

@@ -1,3 +1,5 @@
+import {v1} from 'uuid';
+
 export type PostDataType = {
     id: string
     message: string
@@ -60,6 +62,20 @@ export type StateDataType = {
     dialogs: DialogsType
     sidebar: SidebarType
 }
+
+export type initialStateProfileType = {
+    postData: PostDataType[]
+    newPostTextData: newPostTextDataType
+}
+export type initialStateDialogsType = {
+    dialogData: DialogDataType[]
+    messageData: MessageDataType[]
+    newMessageTextData: string
+}
+
+
+
+
 export type StoreType = {
     _state: StateDataType
     _rerenderEntireTree: (state: StateDataType) => void
