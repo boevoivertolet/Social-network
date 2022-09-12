@@ -1,9 +1,9 @@
 import {v1} from 'uuid';
-
 import {StateDataType, StoreType} from './Types';
 import {profileReducer} from './profileReducer';
 import {dialogsReducer} from './dialogsReducer';
 import {sidebarReducer} from './sidebarReducer';
+
 
 
 export const store: StoreType = {
@@ -76,9 +76,9 @@ export const store: StoreType = {
         return this._state
     },
     dispatch(action) {
-        /*profileReducer(store,action)
+        profileReducer(store,action)
         dialogsReducer(store,action)
-        sidebarReducer(store,action)*/
+        sidebarReducer(store,action)
         this._rerenderEntireTree(this._state)
 
     }
