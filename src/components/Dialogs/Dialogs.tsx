@@ -3,13 +3,13 @@ import styles from './Dialogs.module.css'
 import {Dialog} from './Dialog/Dialog';
 import {Message} from './Message/Message';
 import {addMessageAC, onChangeMessageAC} from '../../Redux/dialogsReducer';
-import {initialStateDialogsType} from '../../Redux/Types';
+import {initialStateDialogsType, StoreType} from '../../Redux/Types';
 
 type DialogsPropsType = {
     /* state: StateDataType
      changeMessage:(newMessage: string)=> void
      addMessage:(id: string)=> void*/
-    store: initialStateDialogsType
+    store: StoreType
 }
 
 export function Dialogs(props: DialogsPropsType) {

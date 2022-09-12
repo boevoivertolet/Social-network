@@ -12,10 +12,10 @@ import {Sidebar} from './components/Sidebar/Sidebar';
 import {StoreType} from './Redux/Types';
 
 
+
 type AppPropsType = {
-    /*store: StoreType*/
-    store: any
-    state: any
+    store: StoreType
+
 }
 
 function App(props: AppPropsType) {
@@ -27,7 +27,6 @@ function App(props: AppPropsType) {
                 <Route
                     path="/Profile" element={
                     <Profile
-                        state={props.state}
                         store={props.store}
                     />}/>
 

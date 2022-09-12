@@ -2,15 +2,12 @@ import {Post} from './Post/Post';
 import styles from './MyPosts.module.css'
 import {addPostAC, onChangePostAC} from '../../../Redux/profileReducer';
 import React from 'react';
-import {initialStateProfileType, StoreType} from '../../../Redux/Types';
+import {StoreType} from '../../../Redux/Types';
 
 
 type MyPostsPropsType = {
-    /*state: StateDataType
-    addPost: (postMessage: string) => void
-    changeText:(newText: string)=> void*/
-    store: initialStateProfileType
-    state: any
+
+    store: StoreType
 }
 
 
